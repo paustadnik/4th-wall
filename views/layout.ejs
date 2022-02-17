@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <% if (!currentUser) { %>
+        <%- include('navbars/loggedOutNavbar'); %>
+    <% } %> <% if (currentUser) { %> 
+        <%- include('navbars/loggedInNavbar'); %>
+    <% } %>
     <div><%- body %></div>
 </body>
 </html>

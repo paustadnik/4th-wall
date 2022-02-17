@@ -5,9 +5,9 @@ const session = require("express-session");
 const store = require("connect-mongo");
 const dotenv = require("dotenv");
 /* const starRatingControl = new starRatingControl('.star-rating') */
+const { isLoggedIn } = require("./middlewares/guard")
 
-
-mongoose.connect("mongodb://localhost/4h-wall");
+mongoose.connect("mongodb://localhost/4th-wall");
 
 const app = express();
 
@@ -30,6 +30,12 @@ app.use(
       }),
     })
   );
+
+app.use((req, res, next) => {
+    res.locals.currentUser = req.session.currentUser
+    next()
+  })
+  
 
 // root route
 app.get('/', (req, res) => {
