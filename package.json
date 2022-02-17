@@ -12,7 +12,8 @@
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.2",
     "jsdom": "^19.0.0",
-    "mongoose": "^6.2.1"
+    "mongoose": "^6.2.1",
+    "star-rating.js": "^4.1.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
