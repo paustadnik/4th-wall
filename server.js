@@ -4,7 +4,7 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const store = require("connect-mongo");
 const dotenv = require("dotenv");
-const starRatingControl = new starRatingControl('.star-rating')
+/* const starRatingControl = new starRatingControl('.star-rating') */
 
 
 mongoose.connect("mongodb://localhost/4h-wall");
@@ -33,7 +33,7 @@ app.use(
 
 // root route
 app.get('/', (req, res) => {
-    res.send('hello')
+    res.render('home')
 })
 
 // route for user
