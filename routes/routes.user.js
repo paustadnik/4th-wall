@@ -15,8 +15,7 @@ router.get("/signup", (req, res) => {
 
 router.post("/signup", async (req, res) => {
     const user = new User()
-    const watched = new List()
-    const watchlist = new List()
+    
     /* console.log(req.body.password)
     console.log(req.body.passwordVerification) */
     if(req.body.password !== req.body.passwordVerification) {
@@ -30,6 +29,8 @@ router.post("/signup", async (req, res) => {
 
         try {
             await user.save()
+            const watched = new List()
+            const watchlist = new List()
             watched.name = 'Watched'
             watched.author = await user.id
 
