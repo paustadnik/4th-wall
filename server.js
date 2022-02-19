@@ -9,6 +9,9 @@ const { isLoggedIn } = require("./middlewares/guard")
 
 mongoose.connect("mongodb://localhost/4th-wall");
 
+//const addListLink = document.querySelector('.addListLink')
+
+
 const app = express();
 
 app.set('view engine', 'ejs')
@@ -52,6 +55,7 @@ app.use("/movie", routeMovie);
 
 // route for review
 const routeReview = require("./routes/routes.review");
+const { estimatedDocumentCount } = require("./models/models.user");
 app.use("/review", routeReview);
 
 

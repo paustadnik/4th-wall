@@ -52,4 +52,15 @@ router.post("/login", async (req, res) => {
     }
 })
 
+router.get('/profile', isLoggedIn, (req, res) => {
+    const user = req.session.currentUser
+    res.render('user/profile', { user })
+})
+
+router.get('/profile/addList', isLoggedIn, (req, res) => {
+    
+    res.render
+
+})
+
 module.exports = router
