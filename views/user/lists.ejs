@@ -1,0 +1,51 @@
+<h2>My lists</h2>
+
+<div>
+
+    <div class="singleListContainer">
+        <h4>Watched</h4>
+        <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+    </div>
+
+    <div class="singleListContainer">
+        <h4>Watchlist</h4>
+        <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+    </div>
+
+    <% lists.forEach((list) => { %>
+        <div class="singleListContainer">
+            <h4><%= list.name %> </h4>
+            <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+        </div>
+    <% }) %>
+
+    <div class="newListContainer singleListContainer">
+        <h4>Add new list</h4>
+        <img class="addListImg" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+    </div>
+
+</div>
+
+<script>
+    const newListDiv = document.querySelector('.newListContainer')
+    const addListImg = document.querySelector('.addListImg')
+    addListImg.addEventListener('click', function(){ 
+        const newListForm = document.createElement('form')
+        const newListInput = document.createElement('input')
+        const addListBtn = document.createElement('button')
+
+        addListBtn.innerHTML = 'Submit'
+        addListBtn.setAttribute('type', 'submit')
+
+        newListForm.setAttribute('action', '/user/profile/addList')
+        newListForm.setAttribute('method', 'post')
+
+        newListInput.setAttribute('name', 'listName')
+        
+        newListForm.appendChild(newListInput)
+        newListForm.appendChild(addListBtn)
+
+        newListDiv.appendChild(newListForm)
+
+})
+</script>

@@ -14,27 +14,50 @@
             <h4>Watchlist</h4>
             <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
         </div>
+
+        <% if (lists.length > 0) { %>
+            <div class="singleListContainer">
+                <% const index = Math.floor(Math.random() * lists.length) %>
+                <h4><%= lists[index].name %> </h4>
+                <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+            </div>
+        <% } %>
         
-        <div class="singleListContainer">
+
+        <div class="newListContainer singleListContainer">
             <h4>Add new list</h4>
-
-    
-            
-
-
-            <a href="/user/profile/addList" class="addListLink"><img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover"></a>
+            <img class="addListImg" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
         </div>
     </div>
 
-
-
     <div>Fun stats</div>
 </div>
+
+<div>
+    <h3>Recently watched</h3>
+</div>
+
+
 <script>
-    const addListLink = document.querySelector('.addListLink')
-    addListLink.addEventListener('click', function(){ 
-    const newListInput = document.createElement('input') 
-    addListLink.type = "text"; addListLink.value = "aaa";
+    const newListDiv = document.querySelector('.newListContainer')
+    const addListImg = document.querySelector('.addListImg')
+    addListImg.addEventListener('click', function(){ 
+        const newListForm = document.createElement('form')
+        const newListInput = document.createElement('input')
+        const addListBtn = document.createElement('button')
+
+        addListBtn.innerHTML = 'Submit'
+        addListBtn.setAttribute('type', 'submit')
+
+        newListForm.setAttribute('action', '/user/profile/addList')
+        newListForm.setAttribute('method', 'post')
+
+        newListInput.setAttribute('name', 'listName')
+        
+        newListForm.appendChild(newListInput)
+        newListForm.appendChild(addListBtn)
+
+        newListDiv.appendChild(newListForm)
 
 })
 </script>

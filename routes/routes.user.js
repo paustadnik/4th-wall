@@ -5,6 +5,7 @@ const User = require("../models/models.user")
 const List = require("../models/models.list")
 const { isLoggedIn } = require("../middlewares/guard");
 const { response } = require("express");
+const { Console } = require("console");
 
 const router = express.Router()
 
@@ -14,6 +15,8 @@ router.get("/signup", (req, res) => {
 
 router.post("/signup", async (req, res) => {
     const user = new User()
+    const watched = new List()
+    const watchlist = new List()
     /* console.log(req.body.password)
     console.log(req.body.passwordVerification) */
     if(req.body.password !== req.body.passwordVerification) {
@@ -24,8 +27,24 @@ router.post("/signup", async (req, res) => {
         const hash = await bcrypt.hash(req.body.password, 10)
         user.password = hash
         user.dateOfBirth = req.body.dob
+
         try {
             await user.save()
+            watched.name = 'Watched'
+            watched.author = await user.id
+
+            watchlist.name = 'Watchlist'
+            watchlist.author = await user.id
+
+            try {
+                await watched.save()
+                await watchlist.save()
+                res.redirect('/user/login')
+            } catch (error) {
+                console.log(error)
+                res.redirect('/user/login')
+            }
+
             res.redirect("/user/login")
         } catch (error) {
             console.log(error)
@@ -52,15 +71,40 @@ router.post("/login", async (req, res) => {
     }
 })
 
-router.get('/profile', isLoggedIn, (req, res) => {
+router.get('/profile', isLoggedIn, async (req, res) => {
     const user = req.session.currentUser
-    res.render('user/profile', { user })
+    const lists = await List.find({ author: req.session.currentUser._id })
+    const recentlyWatched = await List.find({name: 'Watched'})  //PARKED HERE
+
+    res.render('user/profile', { user, lists })
 })
 
 router.get('/profile/addList', isLoggedIn, (req, res) => {
-    
-    res.render
+    res.render('/user/profile', {user})
+})
 
+router.post('/profile/addList', isLoggedIn, async (req, res) => {
+    const list = new List()
+    list.name = req.body.listName
+    list.author = req.session.currentUser._id
+
+    try {
+        await list.save()
+        res.redirect('/user/lists')
+    } catch (error) {
+        console.log(error)
+        res.redirect('/user/profile')
+    }
+})
+
+router.get('/lists', isLoggedIn, async (req, res) => {
+    const lists = await List.find({ author: req.session.currentUser._id })
+    res.render('user/lists', {lists})
+})
+
+router.get('/logout', isLoggedIn, (req, res) => {
+    req.session.destroy()
+    res.redirect('/user/login')
 })
 
 module.exports = router
