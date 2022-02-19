@@ -45,8 +45,7 @@ router.post("/signup", async (req, res) => {
                 console.log(error)
                 res.redirect('/user/login')
             }
-
-            res.redirect("/user/login")
+            
         } catch (error) {
             console.log(error)
             res.redirect("/user/signup")
