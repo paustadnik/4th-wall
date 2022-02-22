@@ -102,9 +102,17 @@ router.get('/lists', isLoggedIn, async (req, res) => {
     res.render('user/lists', {lists})
 })
 
+router.get('/list/:id', isLoggedIn, async (req, res) => {
+    const list = await List.findById(req.params.id);
+    console.log(list)
+    res.render('user/viewList', {list})
+})
+
 router.get('/logout', isLoggedIn, (req, res) => {
     req.session.destroy()
     res.redirect('/user/login')
 })
+
+
 
 module.exports = router
