@@ -10,7 +10,6 @@ const { isLoggedIn } = require("./middlewares/guard")
 
 require('dotenv').config();
 
-console.log(process.env.API_KEY)
 const options = {
   method: 'GET',
   url: `https://imdb-api.com/en/API/SearchMovie/${process.env.API_KEY}/inception 2010`,
