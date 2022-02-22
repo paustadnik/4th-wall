@@ -1,3 +1,4 @@
+const axios = require("axios").default;
 const express = require("express");
 const mongoose = require("mongoose");
 const expressLayouts = require("express-ejs-layouts");
@@ -7,12 +8,29 @@ const dotenv = require("dotenv");
 /* const starRatingControl = new starRatingControl('.star-rating') */
 const { isLoggedIn } = require("./middlewares/guard")
 
+require('dotenv').config();
+
+console.log(process.env.API_KEY)
+const options = {
+  method: 'GET',
+  url: `https://imdb-api.com/en/API/SearchMovie/${process.env.API_KEY}/inception 2010`,
+  params: {page_size: '50'},
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
+
+
 mongoose.connect("mongodb://localhost/4th-wall");
 
 //const addListLink = document.querySelector('.addListLink')
 
 
 const app = express();
+app.get
 
 app.set('view engine', 'ejs')
 app.use(expressLayouts)
