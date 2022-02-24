@@ -11,6 +11,7 @@ const { ConnectionClosedEvent } = require("mongodb")
 const exp = require("constants")
 const { searchMovie } = require("../middlewares/search");
 const router = express.Router()
+const axios = require('axios')
 
 
 /* router.get(`/search`, async (req, res) => {
@@ -25,6 +26,15 @@ router.post('/search', async (req, res) => {
     console.log(searchResults)
     console.log(expression)
     res.render('movie/searchResults', {searchResults})
+})
+
+router.get('/details/:id', async (req, res) => {
+    const movieId = req.params.id
+    const search = await axios.get(`https://imdb-api.com/en/API/Title/${process.env.API_KEY}/${movieId}`)
+    const movieInfo = search.data
+
+    console.log(search.data)
+    res.render('movie/details', { movieInfo })
 })
 
 
