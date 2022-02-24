@@ -74,9 +74,10 @@ router.post("/login", async (req, res) => {
 router.get('/profile', isLoggedIn, async (req, res) => {
     const user = req.session.currentUser
     const lists = await List.find({ author: req.session.currentUser._id })
+    const list = await List.findById(req.params.id);
     const recentlyWatched = await List.find({name: 'Watched'})  //PARKED HERE
 
-    res.render('user/profile', { user, lists })
+    res.render('user/profile', { user, lists, list })
 })
 
 router.get('/profile/addList', isLoggedIn, (req, res) => {
@@ -104,7 +105,6 @@ router.get('/lists', isLoggedIn, async (req, res) => {
 
 router.get('/list/:id', isLoggedIn, async (req, res) => {
     const list = await List.findById(req.params.id);
-    console.log(list)
     res.render('user/viewList', {list})
 })
 
