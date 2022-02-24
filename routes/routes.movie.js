@@ -9,19 +9,22 @@ const { response } = require("express");
 const { Console } = require("console");
 const { ConnectionClosedEvent } = require("mongodb")
 const exp = require("constants")
-
+const { searchMovie } = require("../middlewares/search");
 const router = express.Router()
 
-router.get(`/search`, async (req, res) => {
-    const expression = req.body.searchMovie
-    //console.log('looooooool', expression)
-    res.render('movie/searchResults')
-})
+
+/* router.get(`/search`, async (req, res) => {
+     const expression = req.body.searchMovie
+    console.log('looooooool', expression) 
+    res.render('movie/searchResults') 
+}) */
 
 router.post('/search', async (req, res) => {
     const expression = req.body.searchMovie
+    const searchResults = await searchMovie(expression)
+    console.log(searchResults)
     console.log(expression)
-    res.redirect('movie/searchResults')
+    res.render('movie/searchResults', {searchResults})
 })
 
 

@@ -1,1 +1,9 @@
 <h2>Search results</h2>
+<div>
+<% searchResults.forEach((result) => { %>
+    <div class="searchResultContainer">
+        <a href="/movie/details/<%= result.id %> "><h4><%= result.title %> </h4></a>
+        <img src= <%= result.image %>  width='200' alt="movieCover">
+    </div>
+<% }) %>
+</div>
