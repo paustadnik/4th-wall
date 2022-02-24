@@ -21,6 +21,11 @@ const userSchema = new mongoose.Schema({
     dateCreated: {
         type: Date,
         default: Date.now
+    },
+    lists : {
+        type: [mongoose.SchemaTypes.ObjectId],
+        default: [],
+        ref: 'List',
     }
 });
 
