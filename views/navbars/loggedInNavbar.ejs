@@ -5,8 +5,26 @@
         <li><a href="/user/logout">Log out</a></li>
     </ul>
     <!-- Figure out the route for search -->
-    <form action="/search" method="get">
+    <form action="/movie/search" method="get">
     <input type="search" placeholder="Movie" name="searchMovie" id="searchMovieInput">
-    <button type="submit">Search</button>
+    <button type="submit" class="searchBtn">Search</button>
     </form>
 </div>
+
+<script>
+    import searchMovie from '../../server.js'
+
+    const searchMovieInput = document.getElementById('searchMovieInput')
+    const searchExpression = searchMovieInput.value
+    console.log(searchExpression)
+    const searchBtn = document.querySelector('.searchBtn')
+
+    searchBtn.addEventListener('click', function() {
+        console.log(searchExpression)
+        searchMovie()
+
+    })
+
+
+
+</script>

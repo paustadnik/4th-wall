@@ -7,10 +7,30 @@ const dotenv = require("dotenv");
 /* const starRatingControl = new starRatingControl('.star-rating') */
 const { isLoggedIn } = require("./middlewares/guard")
 
+require('dotenv').config();
+
+// const options = {
+//   method: 'GET',
+//   url: `https://imdb-api.com/en/API/SearchMovie/${process.env.API_KEY}/inception 2010`,
+//   params: {page_size: '50'},
+// };
+
+async function searchMovie(searchExpression) {
+    const search = await axios.get(`https://imdb-api.com/en/API/SearchMovie/${process.env.API_KEY}/${searchExpression}`)
+    console.log(search.data)
+}
+
+searchMovie('amelie')
+// axios.request(options).then(function (response) {
+// 	console.log(response.data);
+// }).catch(function (error) {
+// 	console.error(error);
+// });
+
+
 mongoose.connect("mongodb://localhost/4th-wall");
 
 //const addListLink = document.querySelector('.addListLink')
-
 
 const app = express();
 
