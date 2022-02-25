@@ -1,14 +1,30 @@
 <a href="/movie/addToWatched"><img src="D:\Ironhack\project\4th-wall\public\images\btn icons\eye.png" width='50' alt="eyeIcon"></a>
 <a href="/movie/addToWatchlist"><img src="https://www.google.fr/imgres?imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F193%2F193929.png&imgrefurl=https%3A%2F%2Fwww.flaticon.com%2Ffr%2Ficone-gratuite%2Fpop-corn_193929&tbnid=eew_ii395dCPSM&vet=12ahUKEwj817fgk5n2AhULaRQKHaXcDmIQMygAegUIARDMAQ..i&docid=L-JBimfuAlcK0M&w=512&h=512&q=popcorn%20icon&ved=2ahUKEwj817fgk5n2AhULaRQKHaXcDmIQMygAegUIARDMAQ" width='50' alt="popCornIcon"></a>
-<img src="../../public/images/btn icons/plus.png" alt="plusIcon">
+<img src="../../public/images/btn icons/plus.png" alt="plusIcon" class="addListBtn">
+<ul class="userLists">
+    <% lists.forEach((list) => { %>
+        <li class="userListsContainer">    
+            <h4><%= list.name %> </h4>
+            <a href="/movie/addToList/<%= list.id %> ">Add</a>  
+        </li>
+    <% }) %>
+</ul>
 
-<h3><%= movieInfo.title %> </h3>
-<h4><%= movieInfo.genres %> </h4>
-<img src= <%= movieInfo.image %>   width='250' alt="movieCover">
-<h5>Studio: <%= movieInfo.companies %></h5>
-<h5>Director: <%= movieInfo.directors %></h5>
+<h3 name="movieTitle"><%= movieInfo.title %> </h3>
+<h4 name="movieGenre"><%= movieInfo.genres %> </h4>
+<img name="MovieImg" src= <%= movieInfo.image %>   width='250' alt="movieCover">
+<h5 name="movieStudio">Studio: <%= movieInfo.companies %></h5>
+<h5 class="movieDirector">Director: <%= movieInfo.directors %></h5>
 <h5>Writers: <%= movieInfo.writers %></h5>
 <h5>Cast: <%= movieInfo.stars %></h5>
 <h5>Synopsis: </h5>
 <p ><%= movieInfo.plot %></p>
-
+<div class="similarMovies">
+<h3>Similar movies</h3>
+<% movieInfo.similars.forEach((similar) => { %>
+    <div class="similarMovieContainer">    
+        <a href="/movie/details/<%= similar.id %> "><h4><%= similar.title %> </h4></a>
+        <img src= <%= similar.image %>  width='100' alt="movieCover">
+    </div>
+<% }) %>
+</div>

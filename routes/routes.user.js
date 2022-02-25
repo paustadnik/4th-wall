@@ -37,9 +37,9 @@ router.post("/signup", async (req, res) => {
             watchlist.name = 'Watchlist'
             watchlist.author = await user.id
 
-            user.lists.push(watched.name)
+            /* user.lists.push(watched.name)
             user.lists.push(watchlist.name)
-            await user.save()
+            await user.save() */
             
             try {
                 await watched.save()
