@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         default: Date.now
     },
     lists : {
-        type: [mongoose.SchemaTypes.ObjectId],
+        type: [mongoose.SchemaTypes.name],
         default: [],
         ref: 'List',
     }

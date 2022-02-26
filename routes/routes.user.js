@@ -37,14 +37,14 @@ router.post("/signup", async (req, res) => {
 
             watchlist.name = 'Watchlist'
             watchlist.author = await user.id
-
-            /* user.lists.push(watched.name)
-            user.lists.push(watchlist.name)
-            await user.save() */
             
             try {
                 await watched.save()
                 await watchlist.save()
+                user.lists.push(watched.name)
+                user.lists.push(watchlist.name)
+                await user.save()
+
                 res.redirect('/user/login')
             } catch (error) {
                 console.log(error)
@@ -90,11 +90,23 @@ router.get('/profile/addList', isLoggedIn, (req, res) => {
 
 router.post('/profile/addList', isLoggedIn, async (req, res) => {
     const list = new List()
+    const user = await User.findById(req.session.currentUser._id)
+    console.log(user.lists)
+    
     list.name = req.body.listName
     list.author = req.session.currentUser._id
 
     try {
-        await list.save()
+        if (!user.lists.includes(list.name)) {
+            await list.save()
+            user.lists.push(list.name)
+            await user.save()
+            console.log(user.lists)
+        } 
+        else {
+            console.log(`List ${list.name} already exists`)
+        }
+        
         res.redirect('/user/lists')
     } catch (error) {
         console.log(error)
