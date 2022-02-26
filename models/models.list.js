@@ -11,8 +11,10 @@ const listSchema = new mongoose.Schema({
         ref: 'User',
     },
     movies: {
-        type: [mongoose.SchemaTypes.ObjectId],
-        ref: 'Movie',
+        // type: [mongoose.SchemaTypes.title],
+        // ref: 'Movie',
+        type: String,
+        default: []
     }
 });
 

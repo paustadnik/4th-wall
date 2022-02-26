@@ -1,8 +1,14 @@
 const mongoose = require('mongoose')
 
 const movieSchema = new mongoose.Schema({
+    imdbId: {
+        type: String
+    },
     title: {
         type: String,
+    },
+    img: {
+        type: String
     },
     genre: {
         type: [String],

@@ -5,7 +5,11 @@
     <% lists.forEach((list) => { %>
         <li class="userListsContainer">    
             <h4><%= list.name %> </h4>
-            <a href="/movie/addToList/<%= list.id %> ">Add</a>  
+            <form action="/movie/addToList/<%= list.id %>" method="post">
+                <input class="movieId" name="imdbID" type="text" value="<%= movieInfo.id %>" >
+                <button type="submit">Add</button>
+            </form>
+            
         </li>
     <% }) %>
 </ul>
@@ -19,7 +23,6 @@
 <h5>Cast: <%= movieInfo.stars %></h5>
 <h5>Synopsis: </h5>
 <p ><%= movieInfo.plot %></p>
-<div class="similarMovies">
 <h3>Similar movies</h3>
 <% movieInfo.similars.forEach((similar) => { %>
     <div class="similarMovieContainer">    
@@ -28,3 +31,11 @@
     </div>
 <% }) %>
 </div>
+
+<script>
+    const movieId = document.querySelectorAll('.movieId')
+    movieId.forEach((e) => {
+        e.style.display = 'none'
+    })
+    console.log(`IMDB ID is ${movieId}`)
+</script>
