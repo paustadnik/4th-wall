@@ -15,7 +15,7 @@ const axios = require('axios')
 const window = require('window')
 
 
-router.post('/search', async (req, res) => {
+router.post('/search', isLoggedIn, async (req, res) => {
     const expression = req.body.searchMovie
     const searchResults = await searchMovie(expression)
     // console.log(searchResults)
@@ -23,7 +23,7 @@ router.post('/search', async (req, res) => {
     res.render('movie/searchResults', {searchResults})
 })
 
-router.get('/details/:id', async (req, res) => {
+router.get('/details/:id', isLoggedIn, async (req, res) => {
     const movie = new Movie()
     const movieId = req.params.id
     const search = await axios.get(`https://imdb-api.com/en/API/Title/${process.env.API_KEY}/${movieId}`)
@@ -55,19 +55,13 @@ router.get('/details/:id', async (req, res) => {
     res.render('movie/details', { movieInfo, lists })
 })
 
-// router.get('/addToList/:id', async (req, res) => {
-//     res.
-// })
 
-router.post('/addToList/:id', async (req, res) => {
+
+router.post('/addToList/:id', isLoggedIn, async (req, res) => {
     const list = await List.findById(req.params.id)
     const movieId = req.body.imdbID
-/*     const movie = await Movie.findOne({imdbId : movieId})
-    console.log(movieId)
-    console.log(req.params.id) */ 
+
     list.movies.push(movieId)
-    //list in witch we want to add the movie id
-    //console.log(req.params) // have to find a way to acces the movie info on the web page to put it in our database, req.body doesn't work
     
     try {
         await list.save()

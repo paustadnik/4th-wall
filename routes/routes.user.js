@@ -12,23 +12,24 @@ const { watch } = require("../models/models.user");
 const router = express.Router()
 
 router.get("/signup", (req, res) => {
-    res.render("user/signup")
+    const pwMatch = true
+    res.render("user/signup", {pwMatch : pwMatch})
 })
 
 router.post("/signup", async (req, res) => {
     const user = new User()
-    
-    /* console.log(req.body.password)
-    console.log(req.body.passwordVerification) */
-    if(req.body.password !== req.body.passwordVerification) {
-        /* console.log('password dont match') */
-    } else {
-        user.username = req.body.username
+    user.username = req.body.username
         user.email = req.body.email
         const hash = await bcrypt.hash(req.body.password, 10)
         user.password = hash
         user.dateOfBirth = req.body.dob
-
+    /* console.log(req.body.password)
+    console.log(req.body.passwordVerification) */
+    if(req.body.password !== req.body.passwordVerification) {
+        const pwMatch = false 
+        res.render("user/signup", {pwMatch : pwMatch, user})
+    } else {
+        
         try {
             await user.save()
             const watched = new List()
