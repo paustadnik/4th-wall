@@ -14,17 +14,11 @@ const router = express.Router()
 const axios = require('axios')
 
 
-/* router.get(`/search`, async (req, res) => {
-     const expression = req.body.searchMovie
-    console.log('looooooool', expression) 
-    res.render('movie/searchResults') 
-}) */
-
 router.post('/search', async (req, res) => {
     const expression = req.body.searchMovie
     const searchResults = await searchMovie(expression)
-    console.log(searchResults)
-    console.log(expression)
+    // console.log(searchResults)
+    // console.log(expression)
     res.render('movie/searchResults', {searchResults})
 })
 
@@ -40,7 +34,8 @@ router.get('/details/:id', async (req, res) => {
 
 router.get('/addToList/:id', async (req, res) => {
     console.log(req.params.id) //list in witch we want to add the movie id
-    console.log(req.body.movieDirector) // have to find a way to acces the movie info on the web page to put it in our database, req.body doesn't work
+    console.log(req.body) // have to find a way to acces the movie info on the web page to put it in our database, req.body doesn't work
+
 })
 
 

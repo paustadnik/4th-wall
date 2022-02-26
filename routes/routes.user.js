@@ -6,6 +6,7 @@ const List = require("../models/models.list")
 const { isLoggedIn } = require("../middlewares/guard");
 const { response } = require("express");
 const { Console } = require("console");
+const { watch } = require("../models/models.user");
 
 const router = express.Router()
 
@@ -78,10 +79,9 @@ router.post("/login", async (req, res) => {
 router.get('/profile', isLoggedIn, async (req, res) => {
     const user = req.session.currentUser
     const lists = await List.find({ author: req.session.currentUser._id })
-    const list = await List.findById(req.params.id);
-    const recentlyWatched = await List.find({name: 'Watched'})  //PARKED HERE
-
-    res.render('user/profile', { user, lists, list })
+    const watched = await List.find({name: 'Watched'})  //PARKED HERE
+    const watchlist = await List.find({name: 'Watchlist'})
+    res.render('user/profile', { user, lists, watched, watchlist })
 })
 
 router.get('/profile/addList', isLoggedIn, (req, res) => {
