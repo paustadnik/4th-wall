@@ -62,12 +62,20 @@ router.get('/details/:id', async (req, res) => {
 router.post('/addToList/:id', async (req, res) => {
     const list = await List.findById(req.params.id)
     const movieId = req.body.imdbID
+/*     const movie = await Movie.findOne({imdbId : movieId})
     console.log(movieId)
-    console.log(req.params.id) //list in witch we want to add the movie id
+    console.log(req.params.id) */ 
+    list.movies.push(movieId)
+    //list in witch we want to add the movie id
     //console.log(req.params) // have to find a way to acces the movie info on the web page to put it in our database, req.body doesn't work
-    const movieTitle = 'Amelie'
-    //list.movies.push(movieTitle) 
-    //await list.save()
+    
+    try {
+        await list.save()
+        res.redirect(`/movie/details/${movieId}`)
+    } catch (error) {
+        console.log(error)
+    }
+    
 
 
 })

@@ -3,6 +3,7 @@ const express = require("express");
 const bcrypt = require("bcrypt")
 const User = require("../models/models.user")
 const List = require("../models/models.list")
+const Movie = require('../models/models.movie')
 const { isLoggedIn } = require("../middlewares/guard");
 const { response } = require("express");
 const { Console } = require("console");
@@ -121,7 +122,16 @@ router.get('/lists', isLoggedIn, async (req, res) => {
 
 router.get('/list/:id', isLoggedIn, async (req, res) => {
     const list = await List.findById(req.params.id);
-    res.render('user/viewList', {list})
+    const moviesId = list.movies
+    console.log(moviesId)
+
+    let movies = []
+    for(const id of moviesId) {
+        const film = await Movie.findOne({imdbId : id})
+        movies.push(film)
+    }
+
+    res.render('user/viewList', {list, movies})
 })
 
 router.get('/logout', isLoggedIn, (req, res) => {

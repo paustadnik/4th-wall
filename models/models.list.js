@@ -11,10 +11,9 @@ const listSchema = new mongoose.Schema({
         ref: 'User',
     },
     movies: {
-        // type: [mongoose.SchemaTypes.title],
-        // ref: 'Movie',
-        type: String,
-        default: []
+        type: [mongoose.SchemaTypes.imdbId],
+        ref: 'Movie',
+
     }
 });
 

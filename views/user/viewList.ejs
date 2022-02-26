@@ -1,2 +1,10 @@
 <h2><%= list.name %> </h2>
 
+<div>
+    <% movies.forEach((movie) => { %>
+        <div class="movieInList">
+            <img src= <%= movie.img %>  width='200' alt="movieCover">
+            <a href="/movie/details/<%= movie.imdbId %> "><h4><%= movie.title %> </h4></a>
+        </div>
+    <% }) %>
+    </div>
