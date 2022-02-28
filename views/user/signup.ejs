@@ -1,6 +1,29 @@
 <h2>Sign up</h2>
 
-<% if ( !pwMatch ) { %>  
+<% if ( !emailFree && pwMatch) { %>  
+    <form action="/user/signup" method="post">
+        <input placeholder="Username" name="username" type="text" value="<%= user.username %> ">
+        <input placeholder="Email" name="email" type="email" value="<%= user.email %> ">
+        <span>This email is already in use </span>
+        <input placeholder="Password" name="password" type="password">
+        <input placeholder="Retype your password" name="passwordVerification" type="password">
+        <input placeholder="Date of birth" name="dob" type="date">
+        <button type="submit">Sign up</button>
+    </form>
+
+<% } else if (( !emailFree && !pwMatch)) { %>
+        <form action="/user/signup" method="post">
+            <input placeholder="Username" name="username" type="text" value="<%= user.username %> ">
+            <input placeholder="Email" name="email" type="email" value="<%= user.email %> ">
+            <span>This email is already in use </span>
+            <input placeholder="Password" name="password" type="password">
+            <input placeholder="Retype your password" name="passwordVerification" type="password">
+            <span>Your passwords don't match!</span>
+            <input placeholder="Date of birth" name="dob" type="date">
+            <button type="submit">Sign up</button>
+        </form>
+
+<% } else if ( emailFree && !pwMatch ) { %>  
     <form action="/user/signup" method="post">
         <input placeholder="Username" name="username" type="text" value="<%= user.username %> ">
         <input placeholder="Email" name="email" type="email" value="<%= user.email %> ">
@@ -21,4 +44,5 @@
     <button type="submit">Sign up</button>
 </form>
 <% } %>
+
 <span>Already have an account? <a href="/user/login">Log in</a> </span>

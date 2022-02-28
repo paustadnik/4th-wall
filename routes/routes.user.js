@@ -13,21 +13,31 @@ const router = express.Router()
 
 router.get("/signup", (req, res) => {
     const pwMatch = true
-    res.render("user/signup", {pwMatch : pwMatch})
+    const emailFree = true
+    res.render("user/signup", {pwMatch : pwMatch, emailFree : emailFree})
 })
 
 router.post("/signup", async (req, res) => {
     const user = new User()
+    const emailFree = true
+    const pwMatch = true
+
     user.username = req.body.username
-        user.email = req.body.email
-        const hash = await bcrypt.hash(req.body.password, 10)
-        user.password = hash
-        user.dateOfBirth = req.body.dob
-    /* console.log(req.body.password)
-    console.log(req.body.passwordVerification) */
+    user.email = req.body.email
+    const hash = await bcrypt.hash(req.body.password, 10)
+    user.password = hash
+    user.dateOfBirth = req.body.dob
+
+    const emailExists = await User.findOne({ email : req.body.email})
+
+    if (emailExists !== null) {
+        const emailFree = false
+        res.render('user/signup', {emailFree : emailFree, user, pwMatch : pwMatch})
+    }
+
     if(req.body.password !== req.body.passwordVerification) {
         const pwMatch = false 
-        res.render("user/signup", {pwMatch : pwMatch, user})
+        res.render("user/signup", {pwMatch : pwMatch, user, emailFree : emailFree})
     } else {
         
         try {
