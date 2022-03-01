@@ -10,7 +10,7 @@ const axios = require("axios").default;
 
 require('dotenv').config();
 
-mongoose.connect("mongodb://localhost/4th-wall");
+mongoose.connect(process.env.MONGODB_URL);
 
 const app = express();
 
@@ -18,10 +18,11 @@ app.set('view engine', 'ejs')
 app.use(expressLayouts)
 app.use(express.urlencoded( { extended: false }))
 app.use(express.static('public'))
+app.set('trust proxy', 1)
 
 app.use(
     session({
-      secret: "helloworld",
+      secret: process.env.SECRET,
       resave: true,
       saveUninitialized: false,
       cookie: {
@@ -29,7 +30,7 @@ app.use(
         maxAge: 1200000,
       },
       store: store.create({
-        mongoUrl: "mongodb://localhost/4th-wall",
+        mongoUrl: process.env.MONGODB_URL,
       }),
     })
   );
@@ -61,4 +62,4 @@ app.use("/review", routeReview);
 
 
 
-app.listen(4000)
+app.listen(process.env.PORT)
