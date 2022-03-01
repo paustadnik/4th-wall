@@ -21,7 +21,7 @@ const window = new Window();
 router.post('/search', isLoggedIn, async (req, res) => {
     const expression = req.body.searchMovie
     const searchResults = await searchMovie(expression)
-    // console.log(searchResults)
+    console.log(searchResults)
     // console.log(expression)
     res.render('movie/searchResults', {searchResults})
 })
@@ -32,6 +32,7 @@ router.get('/details/:id', isLoggedIn, async (req, res) => {
     const search = await axios.get(`https://imdb-api.com/en/API/Title/${process.env.API_KEY}/${movieId}`)
     const movieInfo = search.data
     const lists = await List.find({ author: req.session.currentUser._id })
+    const reviews = await Review.find({ movieId: movieId }) 
 
     movie.imdbId = movieInfo.id
     movie.title = movieInfo.title
@@ -46,33 +47,37 @@ router.get('/details/:id', isLoggedIn, async (req, res) => {
     try {
         const movieCheck = await Movie.findOne({ imdbId: movieInfo.id})
         if (!movieCheck) {
-            movie.save()
+            await movie.save()
         } 
+        res.render('movie/details', { movieInfo, lists, reviews})
 
     } catch (error) {
-        console.log(error)
+        console.log('boom')
     }
 
     //console.log(search.data)
-    res.render('movie/details', { movieInfo, lists })
+    
 })
 
 router.post('/details/:id', isLoggedIn, async (req, res) => {
     const review = new Review()
-    const user = await User.findById(req.session.currentUser._id)
+    /* const user = await User.findById(req.session.currentUser._id)
     const lists = await List.find({ author: req.session.currentUser._id })
-    console.log(`Movie ID is ${req.body.imdbID}`)
+    console.log(`Movie ID is ${req.body.imdbID}`) */
     review.review = req.body.reviewBody
     review.author = req.session.currentUser._id
     review.movieId = req.params.id    
 
+    console.log(review.movieId)
+    console.log(req.params.id)
     try {
         await review.save()
-        res.render('')
+        res.redirect(`/movie/details/${req.params.id}`)
     } catch (error) {
         console.log(error)
     }
-    res.render(`movie/details`, {user, lists})
+    /* res.render(`movie/details`, {user, lists}) */
+    
 })
 
 

@@ -38,6 +38,17 @@
     <input type="radio" id="st5" value="5" class="starInput" />
     <label for="st5" class="starLabel"></label>
     
+    <% if (reviews) { %>
+        <h3>Reviews</h3>
+    <div>
+        <% reviews.forEach((review) => { %>
+        <div class="reviewContainer">    
+            <span><%= review.review %> </span>
+        </div>
+    <% }) %>
+    </div>
+    <% } %>
+
     <div>
         <h3>Add a review</h3>
         <form action="/movie/details/<%= movieInfo.id %>" method="post">
