@@ -1,0 +1,18 @@
+.navbarContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    /* flex-direction: row; */
+    background-color: #F9EBF4ff ;
+    height: 3em;
+    width: 100%;
+    position: fixed;
+}
+
+ .navbarElements{
+    display: flex;
+    justify-items: center;
+    align-items: flex-start;
+    flex-direction: row;
+    list-style: none;
+} 
