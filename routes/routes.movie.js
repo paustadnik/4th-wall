@@ -43,7 +43,6 @@ router.get('/details/:id', isLoggedIn, async (req, res) => {
     movie.synopsis = movieInfo.plot
     movie.img = movieInfo.image
 
-
     try {
         const movieCheck = await Movie.findOne({ imdbId: movieInfo.id})
         if (!movieCheck) {
@@ -59,24 +58,21 @@ router.get('/details/:id', isLoggedIn, async (req, res) => {
 })
 
 router.post('/details/:id', isLoggedIn, async (req, res) => {
-    const { movieId } = require('../views/movie/details.ejs');
     const review = new Review()
     const user = await User.findById(req.session.currentUser._id)
     const lists = await List.find({ author: req.session.currentUser._id })
-    
     console.log(`Movie ID is ${req.body.imdbID}`)
     review.review = req.body.reviewBody
     review.author = req.session.currentUser._id
-
-    console.log('AAAAAAA', movieId.value)
+    review.movieId = req.params.id    
 
     try {
-        
+        await review.save()
+        res.render('')
     } catch (error) {
         console.log(error)
-        
     }
-    res.render('movie/details', {user, lists})
+    res.render(`movie/details`, {user, lists})
 })
 
 
