@@ -1,0 +1,42 @@
+@import url('font-awesome.min.css');
+
+.starInput {
+    border: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    opacity: 0;
+}
+
+.starLabel {
+    position: relative;
+    float: right;
+    color: #C8C8C8;
+}
+
+.starLabel:before {
+    margin: 5px;
+    content: "\f005";
+    font-family: FontAwesome;
+    display: inline-block;
+    font-size: 1.5em;
+    color: #ccc;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+  
+.starInput:checked ~ .starLabel:before {
+    color: #FFC107;
+}
+  
+.starLabel:hover ~ .starLabel:before {
+    color: #ffdb70;
+}
+  
+.starLabel:hover:before {
+    color: #FFC107;
+}

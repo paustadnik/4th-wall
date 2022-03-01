@@ -4,7 +4,6 @@ const expressLayouts = require("express-ejs-layouts");
 const session = require("express-session");
 const store = require("connect-mongo");
 const dotenv = require("dotenv");
-/* const starRatingControl = new starRatingControl('.star-rating') */
 const { isLoggedIn } = require("./middlewares/guard")
 const axios = require("axios").default;
 

@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../public/styles/font-awesome.min.css">
 <a href="/movie/addToWatched"><img src="D:\Ironhack\project\4th-wall\public\images\btn icons\eye.png" width='50' alt="eyeIcon"></a>
 <a href="/movie/addToWatchlist"><img src="https://www.google.fr/imgres?imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F193%2F193929.png&imgrefurl=https%3A%2F%2Fwww.flaticon.com%2Ffr%2Ficone-gratuite%2Fpop-corn_193929&tbnid=eew_ii395dCPSM&vet=12ahUKEwj817fgk5n2AhULaRQKHaXcDmIQMygAegUIARDMAQ..i&docid=L-JBimfuAlcK0M&w=512&h=512&q=popcorn%20icon&ved=2ahUKEwj817fgk5n2AhULaRQKHaXcDmIQMygAegUIARDMAQ" width='50' alt="popCornIcon"></a>
 <img src="../../public/images/btn icons/plus.png" alt="plusIcon" class="addListBtn">
@@ -23,6 +24,29 @@
 <h5>Cast: <%= movieInfo.stars %></h5>
 <h5>Synopsis: </h5>
 <p ><%= movieInfo.plot %></p>
+<div>
+    <h2>Rating</h2>
+
+    <input type="radio" id="st1" value="1" class="starInput" />
+    <label for="st1" class="starLabel"></label>
+    <input type="radio" id="st2" value="2" class="starInput" />
+    <label for="st2" class="starLabel"></label>
+    <input type="radio" id="st3" value="3" class="starInput" />
+    <label for="st3" class="starLabel"></label>
+    <input type="radio" id="st4" value="4" class="starInput" />
+    <label for="st4" class="starLabel"></label>
+    <input type="radio" id="st5" value="5" class="starInput" />
+    <label for="st5" class="starLabel"></label>
+    
+    <div>
+        <h3>Add a review</h3>
+        <form action="/movie/details/<%= movieInfo.id %>" method="post">
+            <textarea name="reviewBody" id="" cols="80" rows="6"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
 <h3>Similar movies</h3>
 <% movieInfo.similars.forEach((similar) => { %>
     <div class="similarMovieContainer">    
@@ -37,5 +61,7 @@
     movieId.forEach((e) => {
         e.style.display = 'none'
     })
-    console.log(`IMDB ID is ${movieId}`)
+    
+    console.log(`IMDB ID is ${movieId.value}`)
+    //module.exports = { movieId }
 </script>
