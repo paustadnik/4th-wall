@@ -3,28 +3,26 @@
     <h2>Sign up</h2>
 
     <% if ( !emailFree && pwMatch) { %>  
-        <div class="signupForm">
-            <form action="/user/signup" method="post">
-                <input placeholder="Username" name="username" type="text" value="<%= user.username %> ">
-                <input placeholder="Email" name="email" type="email" value="<%= user.email %> ">
-                <span>This email is already in use </span>
-                <input placeholder="Password" name="password" type="password">
-                <input placeholder="Retype your password" name="passwordVerification" type="password">
-                <input placeholder="Date of birth" name="dob" type="date">
-                <button type="submit">Sign up</button>
-            </form>
-    </div>
+        <form action="/user/signup" method="post" class="signupForm">
+            <input placeholder="Username" name="username" type="text" value="<%= user.username %> ">
+            <input placeholder="Email" name="email" type="email" value="<%= user.email %> ">
+            <span class="signupError">This email is already in use </span>
+            <input placeholder="Password" name="password" type="password">
+            <input placeholder="Retype your password" name="passwordVerification" type="password">
+            <input placeholder="Date of birth" name="dob" type="date">
+            <button type="submit" class="signupBtn">Sign up</button>
+        </form>
 
     <% } else if (( !emailFree && !pwMatch)) { %>
             <form action="/user/signup" method="post" class="signupForm">
                 <input placeholder="Username" name="username" type="text" value="<%= user.username %> ">
                 <input placeholder="Email" name="email" type="email" value="<%= user.email %> ">
-                <span>This email is already in use </span>
+                <span class="signupError">This email is already in use </span>
                 <input placeholder="Password" name="password" type="password">
                 <input placeholder="Retype your password" name="passwordVerification" type="password">
-                <span>Your passwords don't match!</span>
+                <span class="signupError">Your passwords don't match!</span>
                 <input placeholder="Date of birth" name="dob" type="date">
-                <button type="submit">Sign up</button>
+                <button type="submit" class="signupBtn">Sign up</button>
             </form>
 
     <% } else if ( emailFree && !pwMatch ) { %>  
@@ -33,23 +31,23 @@
             <input placeholder="Email" name="email" type="email" value="<%= user.email %> ">
             <input placeholder="Password" name="password" type="password">
             <input placeholder="Retype your password" name="passwordVerification" type="password">
-            <span>Your passwords don't match!</span>
+            <span class="signupError">Your passwords don't match!</span>
             <input placeholder="Date of birth" name="dob" type="date">
-            <button type="submit">Sign up</button>
+            <button type="submit" class="signupBtn">Sign up</button>
         </form>
 
     <% } else { %>
-    <form action="/user/signup" method="post">
+    <form action="/user/signup" method="post" class="signupForm">
         <input placeholder="Username" name="username" type="text">
         <input placeholder="Email" name="email" type="email">
         <input placeholder="Password" name="password" type="password">
         <input placeholder="Retype your password" name="passwordVerification" type="password">
         <input placeholder="Date of birth" name="dob" type="date">
-        <button type="submit">Sign up</button>
+        <button type="submit" class="signupBtn">Sign up</button>
     </form>
     <% } %>
 
-    <span>Already have an account? <a href="/user/login">Log in</a> </span>
+    <span class="signupSpan">Already have an account? <a class="signupLink" href="/user/login">Log in</a> </span>
 
 </div>
 
