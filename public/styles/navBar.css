@@ -1,18 +1,40 @@
 .navbarContainer {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    /* flex-direction: row; */
-    background-color: #F9EBF4ff ;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    background-color: #4F1E3Bff;
     height: 3em;
     width: 100%;
     position: fixed;
 }
 
- .navbarElements{
+.navbarElements{
     display: flex;
-    justify-items: center;
-    align-items: flex-start;
-    flex-direction: row;
+    justify-content: space-between;
     list-style: none;
+    margin: 10px;
+    color: #F9EBF4ff;
 } 
+
+.signup, 
+.login,
+.myProfile,
+.myLists,
+.logout {
+    justify-content: space-around;
+    padding: 10px;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.navbarLink {
+    text-decoration: none;
+    color: #F9EBF4ff;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbarLink:hover {
+    color: #DA1152ff;
+}
+
