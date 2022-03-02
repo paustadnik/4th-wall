@@ -65,7 +65,7 @@ router.post('/details/:id', isLoggedIn, async (req, res) => {
     const lists = await List.find({ author: req.session.currentUser._id })
     console.log(`Movie ID is ${req.body.imdbID}`) */
     review.review = req.body.reviewBody
-    review.author = req.session.currentUser._id
+    review.author = req.session.currentUser.username
     review.movieId = req.params.id    
 
     console.log(review.movieId)

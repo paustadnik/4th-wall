@@ -43,7 +43,9 @@
     <div>
         <% reviews.forEach((review) => { %>
         <div class="reviewContainer">    
-            <span><%= review.review %> </span>
+            <span><%= review.author %></span> <br>
+            <span><%= review.review %> </span> <br>
+            <span>Posted at: <%= review.dateCreated %> </span>
         </div>
     <% }) %>
     </div>
@@ -73,3 +75,5 @@
         e.style.display = 'none'
     })
 </script>
+
+<link rel="stylesheet" href="/styles/details.css">
