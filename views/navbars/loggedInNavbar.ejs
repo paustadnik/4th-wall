@@ -5,10 +5,12 @@
         <li class="logout"><a class="navbarLink" href="/user/logout">Log out</a></li>
     </ul>
     <!-- Figure out the route for search -->
-    <form action="/movie/search" method="post" class="searchForm">
-    <input type="search" placeholder="Movie" name="searchMovie" id="searchMovieInput">
-    <button type="submit" class="searchBtn">Search</button>
-    </form>
+    <div class="searchFormContainer">
+        <form action="/movie/search" method="post" class="searchForm">
+        <input type="search" placeholder="Search movie" name="searchMovie" id="searchMovieInput" class="searchMovieInput">
+        <button type="submit" class="searchBtn">Search</button>
+        </form>
+    </div>
 </div>
 
 <link rel="stylesheet" href="/styles/navBar.css">

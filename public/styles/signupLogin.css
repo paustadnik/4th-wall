@@ -5,6 +5,9 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
+body {
+    /* background: radial-gradient(#F9EBF4ff, #751F40ff, #7F4A5Bff, #4F1E3Bff, #DA1152ff, #4D334Fff); */
+}
 
 
 .signupContainer,
@@ -61,3 +64,5 @@ input {
     font-size: 0.8em;
     color: #DA1152ff;
 }
+
+
