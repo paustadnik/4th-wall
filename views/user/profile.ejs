@@ -7,27 +7,39 @@
     <div class="myListsContainer">    
 
         <div class="singleListContainer">
-            <a href="/user/list/<%= watched[0]._id %> "><h4 class="listName"><%= watched[0].name %></h4></a>
-            <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+            <a class="listLink" href="/user/list/<%= watched[0]._id %> "><h4 class="listName" ><%= watched[0].name %></h4></a>
+            <% if (watched[0].movies.length > 0) { %>
+                <img class="listCover" src="<%= firstWatched[0].img %> " width='200' alt="listCover">
+            <% } else { %>
+                <img class="listCover" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+            <% } %>
         </div>
 
         <div class="singleListContainer">
-            <a href="/user/list/<%= watchlist[0]._id %> "><h4><%= watchlist[0].name %></h4></a>
-            <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+            <a class="listLink" href="/user/list/<%= watchlist[0]._id %> "><h4 class="listName"><%= watchlist[0].name %></h4></a>
+            <% if (watchlist[0].movies.length > 0) { %>
+                <img class="listCover" src="<%= firstWatchlist[0].img %> " width='200' alt="listCover">
+            <% } else { %>
+                <img class="listCover" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+            <% } %>
         </div>
 
         <% if (lists.length > 2) { %>
             <div class="singleListContainer">
                 <% const index = Math.floor((Math.random() * (lists.length - 2)) + 2) %>
-                <a href="/user/list/<%= lists[index]._id %> "><h4><%= lists[index].name %> </h4></a>
-                <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+                <a class="listLink"  href="/user/list/<%= lists[index]._id %> "><h4 class="listName"><%= lists[index].name %> </h4></a>
+                <% if (lists[index].movies.length > 0) { %>
+                    <img class="listCover" src="<%= idLists[0].img %> " width='200' alt="listCover">
+                <% } else { %>
+                    <img class="listCover" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+                <% } %>
             </div>
         <% } %>
         
 
-        <div class="newListContainer singleListContainer">
-            <h4>Add new list</h4>
-            <img class="addListImg" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+        <div class="newListContainer">
+            <h4 class="listName">Add new list</h4>
+            <img class="addListImg" src="/images/btn icons/plus.png" width='120' alt="listCover">
         </div>
     </div>
 
@@ -44,16 +56,19 @@
 
         addListBtn.innerHTML = 'Submit'
         addListBtn.setAttribute('type', 'submit')
+        addListBtn.setAttribute('class', 'addListBtn')
 
         newListForm.setAttribute('action', '/user/profile/addList')
         newListForm.setAttribute('method', 'post')
 
         newListInput.setAttribute('name', 'listName')
+        newListInput.setAttribute('class', 'addListInput')
         
         newListForm.appendChild(newListInput)
         newListForm.appendChild(addListBtn)
 
         newListDiv.appendChild(newListForm)
+        newListDiv.setAttribute('class', 'addListContainer')
 
 })
 </script>

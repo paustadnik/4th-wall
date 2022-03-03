@@ -91,9 +91,13 @@ router.post("/login", async (req, res) => {
 router.get('/profile', isLoggedIn, async (req, res) => {
     const user = req.session.currentUser
     const lists = await List.find({ author: req.session.currentUser._id })
-    const watched = await List.find({name: 'Watched'})  //PARKED HERE
+    const watched = await List.find({name: 'Watched'})  
     const watchlist = await List.find({name: 'Watchlist'})
-    res.render('user/profile', { user, lists, watched, watchlist })
+    const firstWatched = await Movie.find({imdbId: watched[0].movies[0]})
+    const firstWatchlist = await Movie.find({imdbId: watchlist[0].movies[0]})
+    const index = Math.floor((Math.random() * (lists.length - 2)) + 2)
+    const idLists = await Movie.find({imdbId: lists[index].movies[0]})
+    res.render('user/profile', { user, lists, watched, watchlist, firstWatched, firstWatchlist, idLists })
 })
 
 router.get('/profile/addList', isLoggedIn, (req, res) => {

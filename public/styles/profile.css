@@ -18,7 +18,7 @@ h2 {
     margin: 0px 30px ;
     font-size: 1.6em;
     color: #4F1E3Bff;
-    text-shadow: 1px 1px #F9EBF4ff
+    text-shadow: 1px 1px #F9EBF4ff;
 }
 
 .myListsHeading {
@@ -37,7 +37,6 @@ body {
     width: 100%;
     height: 100%;
     background-attachment: fixed;
-
 }
 
 .myListsContainer {
@@ -45,8 +44,69 @@ body {
     justify-content: flex-start;
     gap: 40px;
     margin: 30px 30px ;
+
+}
+.singleListContainer {
+    gap: 20px;
 }
 
 .listName {
+    text-decoration: none;
+    color: #4D334Fff;
+    text-shadow: 1px 1px #F9EBF4ff;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.7em;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
 
+.listLink {
+    text-decoration: none;
+}
+
+.listLink:hover,
+.listName:hover {
+    color: #DA1152ff;
+}
+
+.listCover {
+    width: 200px;
+    border-radius: 10px;
+}
+
+.addListImg {
+    align-content: center;
+    cursor: pointer;
+    align-items: center;
+
+}
+
+.newListContainer {
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
+
+.addListBtn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    background-color: #F9EBF4ff;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.addListInput {
+    padding: 5px;
+    align-items: center;
+    border: 1px solid rgb(145, 120, 135);
+    border-radius: 6px;
+    align-content: center;
+    font-size: 0.9em;
+}
+
+.addListContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
