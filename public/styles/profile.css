@@ -2,4 +2,51 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h2 {
+    padding-top: 3em;
+    margin: 0px 30px ;
+    font-size: 2em;
+    color: #4F1E3Bff;
+    text-shadow: 1px 1px #DA1152ff;
+}
+
+.welcome {
+    padding-top: 1em;
+    margin: 0px 30px ;
+    font-size: 1.6em;
+    color: #4F1E3Bff;
+    text-shadow: 1px 1px #F9EBF4ff
+}
+
+.myListsHeading {
+    padding-top: 1em;
+    margin: 0px 30px ;
+    font-size: 1.4em;
+    color: #4F1E3Bff;
+    font-weight: 700;
+}
+
+body {
+    background-image: url('/images/bckgrnd.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+
+}
+
+.myListsContainer {
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    margin: 30px 30px ;
+}
+
+.listName {
+
 }

@@ -1,12 +1,13 @@
 <h2>Lights, camera, action!</h2>
-<h3>Welcome, <%= user.username %> </h3>
+<h3 class="welcome">Welcome, <%= user.username %> </h3>
 
 <div class="profileContainer">
-    <div class="MyListsContainer">
-        <h3>My lists</h3>
+    <h3 class="myListsHeading">My lists</h3>
+    
+    <div class="myListsContainer">    
 
         <div class="singleListContainer">
-            <a href="/user/list/<%= watched[0]._id %> "><h4><%= watched[0].name %></h4></a>
+            <a href="/user/list/<%= watched[0]._id %> "><h4 class="listName"><%= watched[0].name %></h4></a>
             <img src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
         </div>
 
@@ -30,11 +31,6 @@
         </div>
     </div>
 
-    <div>Fun stats</div>
-</div>
-
-<div>
-    <h3>Recently watched</h3>
 </div>
 
 
