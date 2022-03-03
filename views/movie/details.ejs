@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="../../public/styles/font-awesome.min.css">
-
+<button class="hackyTrick"></button>
+<div class="titleAndLists">
+<h3 class="movieTitle"><%= movieInfo.title %> </h3>
+<div class="listsThings">
 <ul>
     <li id="addToList"> <button class="addToListBtn">Add to a list</button> 
         
@@ -16,8 +19,10 @@
 </ul>
 </li>
 </ul>
+</div>
+</div>
 
-<h3 class="movieTitle"><%= movieInfo.title %> </h3>
+
 <h4 name="movieGenre"><%= movieInfo.genres %> </h4>
 <img name="MovieImg" src= <%= movieInfo.image %>   width='250' alt="movieCover">
 <h5 name="movieStudio">Studio: <%= movieInfo.companies %></h5>
@@ -63,10 +68,11 @@
 </div>
 
 <h3>Similar movies</h3>
+<div class="similarMovieContainer">
 <% movieInfo.similars.forEach((similar) => { %>
-    <div class="similarMovieContainer">    
-        <a href="/movie/details/<%= similar.id %> "><h4><%= similar.title %> </h4></a>
-        <img src= <%= similar.image %>  width='100' alt="movieCover">
+    <div class="singleSimilarMovieContainer">    
+        <a class="similarMovieLink" href="/movie/details/<%= similar.id %> "><h4><%= similar.title %> </h4></a>
+        <img class="similarMovieImg" src= <%= similar.image %>  width='100' alt="movieCover">
     </div>
 <% }) %>
 </div>

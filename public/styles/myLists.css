@@ -19,7 +19,7 @@ body {
     margin-top: 3em;
 }
 
-.listName {
+.myListsTitle {
     margin: 1.5em;
     font-size: 2em;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -32,7 +32,7 @@ body {
     
 }
 
-.moviesContainer {
+.listsContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -40,27 +40,36 @@ body {
     
 }
 
-.movieInList {
+.singleListContainer {
     margin: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
     background-color: #F9EBF4ff;
-    
+    max-width: 15em;
     border-radius: 10px;
     padding: 2em;
 }
 
-.movieImg {
+.listImg {
     border-radius: 10px;
     opacity: 1;
 }
 
-.movieLink {
+
+.listLink {
     text-decoration: none;
     color: #DA1152ff;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 2em;
+    margin-bottom: 2em;
+    opacity: 1;
+}
+
+.addListTitle {
+    text-decoration: none;
+    color: #DA1152ff;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 2em;
     opacity: 1;
 }
