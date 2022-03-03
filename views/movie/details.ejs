@@ -1,21 +1,23 @@
 <link rel="stylesheet" href="../../public/styles/font-awesome.min.css">
-<a href="/movie/addToWatched"><img src="D:\Ironhack\project\4th-wall\public\images\btn icons\eye.png" width='50' alt="eyeIcon"></a>
-<a href="/movie/addToWatchlist"><img src="https://www.google.fr/imgres?imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F193%2F193929.png&imgrefurl=https%3A%2F%2Fwww.flaticon.com%2Ffr%2Ficone-gratuite%2Fpop-corn_193929&tbnid=eew_ii395dCPSM&vet=12ahUKEwj817fgk5n2AhULaRQKHaXcDmIQMygAegUIARDMAQ..i&docid=L-JBimfuAlcK0M&w=512&h=512&q=popcorn%20icon&ved=2ahUKEwj817fgk5n2AhULaRQKHaXcDmIQMygAegUIARDMAQ" width='50' alt="popCornIcon"></a>
-<img src="../../public/images/btn icons/plus.png" alt="plusIcon" class="addListBtn">
-<ul class="userLists">
+
+<ul>
+    <li id="addToList"> <button class="addToListBtn">Add to a list</button> 
+        
+<ul class="userListsContainer">
     <% lists.forEach((list) => { %>
-        <li class="userListsContainer">    
-            <h4><%= list.name %> </h4>
+        <li class="userLists">    
             <form action="/movie/addToList/<%= list.id %>" method="post">
                 <input class="movieId" name="imdbID" type="text" value="<%= movieInfo.id %>" >
-                <button type="submit">Add</button>
+                <button class="listBtn" type="submit"><%= list.name %></button>
             </form>
             
         </li>
     <% }) %>
 </ul>
+</li>
+</ul>
 
-<h3 name="movieTitle"><%= movieInfo.title %> </h3>
+<h3 class="movieTitle"><%= movieInfo.title %> </h3>
 <h4 name="movieGenre"><%= movieInfo.genres %> </h4>
 <img name="MovieImg" src= <%= movieInfo.image %>   width='250' alt="movieCover">
 <h5 name="movieStudio">Studio: <%= movieInfo.companies %></h5>
@@ -75,5 +77,6 @@
         e.style.display = 'none'
     })
 </script>
+</div>
 
 <link rel="stylesheet" href="/styles/details.css">

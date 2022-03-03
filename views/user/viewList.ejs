@@ -1,10 +1,14 @@
-<h2><%= list.name %> </h2>
+<button class="hackyTrick"></button>
 
-<div>
+<div class="listName"><h2 ><%= list.name %> </h2></div>
+
+<div class="moviesContainer">
     <% movies.forEach((movie) => { %>
         <div class="movieInList">
-            <img src= <%= movie.img %>  width='200' alt="movieCover">
-            <a href="/movie/details/<%= movie.imdbId %> "><h4><%= movie.title %> </h4></a>
+            <img src= <%= movie.img %>  width='200' alt="movieCover" class="movieImg">
+            <a class="movieLink" href="/movie/details/<%= movie.imdbId %> "><h4><%= movie.title %> </h4></a>
         </div>
     <% }) %>
     </div>
+
+    <link rel="stylesheet" href="/styles/viewList.css">

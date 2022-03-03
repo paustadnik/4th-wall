@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hackyTrick{
+    margin-top: 3em;
+}
+
+.listName {
+    margin: 1.5em;
+    font-size: 2em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #F9EBF4ff;
+    
+    text-shadow: -3px 3px 0 #DA1152ff,
+                          0px 0px 0 #DA1152ff,
+                         0px 1px 0 #DA1152ff,
+                        -2px 0px 0 #DA1152ff;
+    
+}
+
+.moviesContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 3em;
+}
+
+.movieInList {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.movieImg {
+    border-radius: 10px;
+}
+
+.movieLink {
+    text-decoration: none;
+    color: #DA1152ff;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 1em;
+}
