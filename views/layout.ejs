@@ -8,11 +8,13 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
     <% if (!currentUser) { %>
         <%- include('navbars/loggedOutNavbar'); %>
     <% } %> <% if (currentUser) { %> 
         <%- include('navbars/loggedInNavbar'); %>
     <% } %>
+    </div>
     <div><%- body %></div>
 
 </body>
