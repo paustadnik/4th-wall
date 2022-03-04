@@ -28,18 +28,23 @@
 
         addListBtn.innerHTML = 'Submit'
         addListBtn.setAttribute('type', 'submit')
+        addListBtn.setAttribute('class', 'addListBtn')
 
         newListForm.setAttribute('action', '/user/profile/addList')
         newListForm.setAttribute('method', 'post')
 
         newListInput.setAttribute('name', 'listName')
+        newListInput.setAttribute('class', 'addListInput')
         
         newListForm.appendChild(newListInput)
         newListForm.appendChild(addListBtn)
 
         newListDiv.appendChild(newListForm)
+        newListDiv.setAttribute('class', 'addListContainer')
 
 })
 </script>
+
+<link rel="stylesheet" href="/styles/profile.css">
 
 <link rel="stylesheet" href="/styles/myLists.css">

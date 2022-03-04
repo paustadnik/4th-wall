@@ -96,8 +96,8 @@ router.get('/profile', isLoggedIn, async (req, res) => {
     const firstWatched = await Movie.find({imdbId: watched[0].movies[0]})
     const firstWatchlist = await Movie.find({imdbId: watchlist[0].movies[0]})
     const index = Math.floor((Math.random() * (lists.length - 2)) + 2)
-    let id = lists[index].movies[0]
-    let idLists = await Movie.find({imdbId: id})
+    let idLists = await Movie.find({imdbId: lists[index].movies[0]})
+
     res.render('user/profile', { user, lists, watched, watchlist, firstWatched, firstWatchlist, idLists })
 })
 
@@ -117,7 +117,6 @@ router.post('/profile/addList', isLoggedIn, async (req, res) => {
             await list.save()
             user.lists.push(list.name)
             await user.save()
-            console.log(user.lists)
         } 
         else {
             console.log(`List ${list.name} already exists`)

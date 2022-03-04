@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -14,24 +15,7 @@ body {
     background-attachment: fixed;
 }
 
-.hackyTrick{
-    margin-top: 3em;
-}
-
-.listName {
-    margin: 1.5em;
-    font-size: 2em;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color: #F9EBF4ff;
-    
-    text-shadow: -3px 3px 0 #DA1152ff,
-                          0px 0px 0 #DA1152ff,
-                         0px 1px 0 #DA1152ff,
-                        -2px 0px 0 #DA1152ff;
-    
-}
-
-.moviesContainer {
+.searchResultContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -47,17 +31,36 @@ body {
     background-color: #F9EBF4ff;
     border-radius: 10px;
     padding: 2em;
+    
 }
 
 .movieImg {
     border-radius: 10px;
     opacity: 1;
+    max-width: 200px;
 }
 
 .movieLink {
     text-decoration: none;
     color: #DA1152ff;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 2em;
+    margin-bottom: 2em;
     opacity: 1;
+    max-width: 200px;
+}
+
+.searchResultsTitle {
+    margin: 1.5em;
+    font-size: 2em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #F9EBF4ff;
+    
+    text-shadow: -3px 3px 0 #DA1152ff,
+                          0px 0px 0 #DA1152ff,
+                         0px 1px 0 #DA1152ff,
+                        -2px 0px 0 #DA1152ff;
+}
+
+.hackyTrick{
+    margin-top: 3em;
 }

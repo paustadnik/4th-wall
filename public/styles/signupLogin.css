@@ -17,7 +17,6 @@ body {
     justify-content: center;
 }
 
-
 .signupContainer,
 .loginContainer {
     display: flex;
@@ -80,4 +79,5 @@ input {
     font-size: 0.8em;
     color: #DA1152ff;
 }
+
 
