@@ -93,12 +93,8 @@ router.get('/profile', isLoggedIn, async (req, res) => {
     const lists = await List.find({ author: req.session.currentUser._id })
     const watched = await List.find({name: 'Watched'})  
     const watchlist = await List.find({name: 'Watchlist'})
-    const firstWatched = await Movie.find({imdbId: watched[0].movies[0]})
-    const firstWatchlist = await Movie.find({imdbId: watchlist[0].movies[0]})
-    const index = Math.floor((Math.random() * (lists.length - 2)) + 2)
-    let idLists = await Movie.find({imdbId: lists[index].movies[0]})
 
-    res.render('user/profile', { user, lists, watched, watchlist, firstWatched, firstWatchlist, idLists })
+    res.render('user/profile', { user, lists, watched, watchlist })
 })
 
 router.get('/profile/addList', isLoggedIn, (req, res) => {
@@ -151,7 +147,6 @@ router.get('/logout', isLoggedIn, (req, res) => {
     req.session.destroy()
     res.redirect('/user/login')
 })
-
 
 
 module.exports = router

@@ -2,25 +2,25 @@
 <button class="hackyTrick"></button>
 <div class="movieDetails">
 <div class="titleAndLists">
-<h3 class="movieTitle"><%= movieInfo.title %> </h3>
-<div class="listsThings">
-<ul>
-    <li id="addToList"> <button class="addToListBtn">Add to a list </button> 
-        
-<ul class="userListsContainer">
-    <% lists.forEach((list) => { %>
-        <li class="userLists">    
-            <form action="/movie/addToList/<%= list.id %>" method="post">
-                <input class="movieId" name="imdbID" type="text" value="<%= movieInfo.id %>" >
-                <button class="listBtn" type="submit"><%= list.name %></button>
-            </form>
-            
-        </li>
-    <% }) %>
-</ul>
-</li>
-</ul>
-</div>
+    <h3 class="movieTitle"><%= movieInfo.title %> </h3>
+    <div class="listsThings">
+        <ul>
+            <li id="addToList"> <button class="addToListBtn">Add to a list </button> 
+                
+                <ul class="userListsContainer">
+                    <% lists.forEach((list) => { %>
+                        <li class="userLists">    
+                            <form action="/movie/addToList/<%= list.id %>" method="post">
+                                <input class="movieId" name="imdbID" type="text" value="<%= movieInfo.id %>" >
+                                <button class="listBtn" type="submit"><%= list.name %></button>
+                            </form>
+                            
+                        </li>
+                    <% }) %>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <div class="movieInfo">
@@ -47,7 +47,11 @@
     <input type="radio" id="st4" value="4" class="starInput" />
     <label for="st4" class="starLabel"></label>
     <input type="radio" id="st5" value="5" class="starInput" />
+<<<<<<< HEAD
+    <label for="st5" class="starLabel"></label> -->
+=======
     <label for="st5" class="starLabel"></label>  -->
+>>>>>>> theo
     
 
    

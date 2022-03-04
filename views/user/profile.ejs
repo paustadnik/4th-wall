@@ -8,31 +8,19 @@
 
         <div class="singleListContainer">
             <a class="listLink" href="/user/list/<%= watched[0]._id %> "><h4 class="listName" ><%= watched[0].name %></h4></a>
-            <% if (watched[0].movies.length > 0) { %>
-                <img class="listCover" src="<%= firstWatched[0].img %> " width='200' alt="listCover">
-            <% } else { %>
-                <img class="listCover" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
-            <% } %>
+            <img class="listCover" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
         </div>
 
         <div class="singleListContainer">
             <a class="listLink" href="/user/list/<%= watchlist[0]._id %> "><h4 class="listName"><%= watchlist[0].name %></h4></a>
-            <% if (watchlist[0].movies.length > 0) { %>
-                <img class="listCover" src="<%= firstWatchlist[0].img %> " width='200' alt="listCover">
-            <% } else { %>
-                <img class="listCover" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
-            <% } %>
+            <img class="listCover" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
         </div>
 
         <% if (lists.length > 2) { %>
             <div class="singleListContainer">
                 <% const index = Math.floor((Math.random() * (lists.length - 2)) + 2) %>
                 <a class="listLink"  href="/user/list/<%= lists[index]._id %> "><h4 class="listName"><%= lists[index].name %> </h4></a>
-                <% if (lists[index].movies.length > 0) { %>
-                    <img class="listCover" src="<%= idLists[0].img %> " width='200' alt="listCover">
-                <% } else { %>
-                    <img class="listCover" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
-                <% } %>
+                <img class="listCover" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
             </div>
         <% } %>
         
