@@ -22,11 +22,14 @@ h2 {
 }
 
 .myListsHeading {
-    padding-top: 1em;
-    margin: 0px 30px ;
-    font-size: 1.4em;
-    color: #4F1E3Bff;
-    font-weight: 700;
+    margin: 1em;
+    font-size: 2em;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: #F9EBF4ff;
+    text-shadow: -3px 3px 0 #DA1152ff,
+                          0px 0px 0 #DA1152ff,
+                         0px 1px 0 #DA1152ff,
+                        -2px 0px 0 #DA1152ff;
 }
 
 body {
@@ -42,11 +45,19 @@ body {
 .myListsContainer {
     display: flex;
     justify-content: flex-start;
-    gap: 40px;
+    gap: 10px;
     margin: 30px 30px ;
 
 }
 .singleListContainer {
+    margin: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F9EBF4ff;
+    border-radius: 10px;
+    padding: 2em;
     gap: 20px;
 }
 
@@ -78,12 +89,14 @@ body {
     align-content: center;
     cursor: pointer;
     align-items: center;
+    padding-top: 50px;
+    padding-bottom: 20px;
 
 }
 
 .newListContainer {
-    display: inline;
-    justify-content: center;
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
 }
 

@@ -6,7 +6,7 @@
     background-color: #4F1E3Bff;
     height: 3em;
     width: 100%;
-    position: fixed;
+    position: absolute;
 }
 
 .navbarElements{

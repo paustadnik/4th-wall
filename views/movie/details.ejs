@@ -1,38 +1,40 @@
 <link rel="stylesheet" href="../../public/styles/font-awesome.min.css">
 <button class="hackyTrick"></button>
+
 <div class="titleAndLists">
-<h3 class="movieTitle"><%= movieInfo.title %> </h3>
-<div class="listsThings">
-<ul>
-    <li id="addToList"> <button class="addToListBtn">Add to a list</button> 
-        
-<ul class="userListsContainer">
-    <% lists.forEach((list) => { %>
-        <li class="userLists">    
-            <form action="/movie/addToList/<%= list.id %>" method="post">
-                <input class="movieId" name="imdbID" type="text" value="<%= movieInfo.id %>" >
-                <button class="listBtn" type="submit"><%= list.name %></button>
-            </form>
-            
-        </li>
-    <% }) %>
-</ul>
-</li>
-</ul>
-</div>
+    <h3 class="movieTitle"><%= movieInfo.title %> </h3>
+    <div class="listsThings">
+        <ul>
+            <li id="addToList"> <button class="addToListBtn">Add to a list</button> 
+                
+                <ul class="userListsContainer">
+                    <% lists.forEach((list) => { %>
+                        <li class="userLists">    
+                            <form action="/movie/addToList/<%= list.id %>" method="post">
+                                <input class="movieId" name="imdbID" type="text" value="<%= movieInfo.id %>" >
+                                <button class="listBtn" type="submit"><%= list.name %></button>
+                            </form>
+                            
+                        </li>
+                    <% }) %>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </div>
 
-
-<h4 name="movieGenre"><%= movieInfo.genres %> </h4>
-<img name="MovieImg" src= <%= movieInfo.image %>   width='250' alt="movieCover">
-<h5 name="movieStudio">Studio: <%= movieInfo.companies %></h5>
-<h5 class="movieDirector">Director: <%= movieInfo.directors %></h5>
-<h5>Writers: <%= movieInfo.writers %></h5>
-<h5>Cast: <%= movieInfo.stars %></h5>
-<h5>Synopsis: </h5>
-<p ><%= movieInfo.plot %></p>
+<div class="movieDetailsContainer">
+    <h4 class="movieGenre" name="movieGenre"><%= movieInfo.genres %> </h4>
+    <img name="MovieImg" src= <%= movieInfo.image %>   width='250' alt="movieCover">
+    <h5 class="movieDirector">Director: <%= movieInfo.directors %></h5>
+    <h5>Writers: <%= movieInfo.writers %></h5>
+    <h5>Cast: <%= movieInfo.stars %></h5>
+    <h5 name="movieStudio">Studio: <%= movieInfo.companies %></h5>
+    <h5>Synopsis: </h5>
+    <p ><%= movieInfo.plot %></p>
+</div>
 <div>
-    <h2>Rating</h2>
+    <!-- <h2>Rating</h2>
 
     <input type="radio" id="st1" value="1" class="starInput" />
     <label for="st1" class="starLabel"></label>
@@ -43,7 +45,7 @@
     <input type="radio" id="st4" value="4" class="starInput" />
     <label for="st4" class="starLabel"></label>
     <input type="radio" id="st5" value="5" class="starInput" />
-    <label for="st5" class="starLabel"></label>
+    <label for="st5" class="starLabel"></label> -->
     
     <% if (reviews) { %>
         <h3>Reviews</h3>
