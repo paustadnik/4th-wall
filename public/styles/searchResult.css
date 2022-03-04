@@ -19,7 +19,7 @@ body {
     margin-top: 3em;
 }
 
-.listName {
+.searchResultTitle {
     margin: 1.5em;
     font-size: 2em;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -32,40 +32,40 @@ body {
     
 }
 
-.moviesContainer {
+.searchResultContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     margin: 3em;
     
 }
 
-.movieInList {
+.singleResultContainer {
     margin: 2em;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #F9EBF4ff;
-    min-height: 28em;
-    max-height: 28em;
-    border-radius: 10px;
-    padding: 2em;
     max-width: 18em;
     min-width: 18em;
+    border-radius: 10px;
+    padding: 2em;
+    min-height: 28em;
+    max-height: 28em;
 }
 
-.movieImg {
+.resultImg {
     border-radius: 10px;
     opacity: 1;
 }
 
-.movieLink {
+.resultLink {
     text-decoration: none;
     color: #DA1152ff;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 2em;
+    margin-bottom: 2em;
     opacity: 1;
 }
