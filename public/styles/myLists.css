@@ -44,7 +44,7 @@ body {
     margin: 2em;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center; 
     background-color: #F9EBF4ff;
     max-width: 15em;

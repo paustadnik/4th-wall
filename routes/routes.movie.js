@@ -11,6 +11,7 @@ const { Console } = require("console");
 const { ConnectionClosedEvent } = require("mongodb")
 const exp = require("constants")
 const { searchMovie } = require("../middlewares/search");
+const { images } = require("../middlewares/movieImages");
 const router = express.Router()
 const axios = require('axios')
 

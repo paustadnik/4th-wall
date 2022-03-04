@@ -8,6 +8,7 @@ const { isLoggedIn } = require("../middlewares/guard");
 const { response } = require("express");
 const { Console } = require("console");
 const { watch } = require("../models/models.user");
+const { images } = require("../middlewares/movieImages");
 
 const router = express.Router()
 
@@ -94,7 +95,7 @@ router.get('/profile', isLoggedIn, async (req, res) => {
     const watched = await List.find({name: 'Watched'})  
     const watchlist = await List.find({name: 'Watchlist'})
 
-    res.render('user/profile', { user, lists, watched, watchlist })
+    res.render('user/profile', { user, lists, watched, watchlist, images })
 })
 
 router.get('/profile/addList', isLoggedIn, (req, res) => {
@@ -127,7 +128,7 @@ router.post('/profile/addList', isLoggedIn, async (req, res) => {
 
 router.get('/lists', isLoggedIn, async (req, res) => {
     const lists = await List.find({ author: req.session.currentUser._id })
-    res.render('user/lists', {lists})
+    res.render('user/lists', {lists, images})
 })
 
 router.get('/list/:id', isLoggedIn, async (req, res) => {

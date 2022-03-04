@@ -41,7 +41,6 @@ body {
     position:absolute; 
     background-color: #F9EBF4ff;
     box-shadow: 0px 1px 2px #ccc;
-    
     width: 6em;
     border-radius: 10px;
     float: none;
@@ -87,8 +86,6 @@ body {
 }
 
 .listBtn {
-    
-    
     border-color: #DA1152ff;
     background-color: #F9EBF4ff;
     padding: 0.3em 0.3em;
@@ -117,7 +114,6 @@ body {
 }
 
 .movieInfo {
-    
     margin: 2em;
     display: flex;
     flex-direction: column;
@@ -136,7 +132,6 @@ body {
     color: #F9EBF4ff;
     padding: 0.3em;
     margin-bottom: 1em;
-    
 }
 
 .movieImg {
@@ -195,7 +190,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
     text-shadow: -3px 3px 0 #DA1152ff,
                           0px 0px 0 #DA1152ff,
                          0px 1px 0 #DA1152ff,
@@ -219,16 +213,11 @@ body {
 
 .author {
     font-size: 1.3em;
-    
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    
     display: flex;
     align-items: flex-start;
     justify-content: left;
-    
     color: #751F40ff;
-    
-    
 }
 
 .reviewBody {
@@ -269,7 +258,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
     text-shadow: -3px 3px 0 #DA1152ff,
                           0px 0px 0 #DA1152ff,
                          0px 1px 0 #DA1152ff,
@@ -293,7 +281,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 .textReview {
@@ -320,12 +307,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
     text-shadow: -3px 3px 0 #DA1152ff,
                           0px 0px 0 #DA1152ff,
                          0px 1px 0 #DA1152ff,
                         -2px 0px 0 #DA1152ff;
-
 }
 
 .movieDetailsContainer {
@@ -335,14 +320,6 @@ body {
     justify-content: flex-start;
     flex-direction: column;
 }
-
-.movieGenre {
-    
-}
-
-
-
-
 
 
 .similarMovieContainer {
@@ -359,7 +336,6 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #F9EBF4ff;
-    
     border-radius: 10px;
     padding: 1em;
 }

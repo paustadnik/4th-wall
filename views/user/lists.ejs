@@ -7,7 +7,7 @@
     <% lists.forEach((list) => { %>
         <div class="singleListContainer">
             <a class="listLink" href="/user/list/<%= list.id %> "><h4><%= list.name %> </h4></a>
-            <img class="listImg" src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-filming-filming-film-festival-movie-png-image_3854965.jpg" width='200' alt="listCover">
+            <img class="listImg" src="<%= images[Math.floor(Math.random() * images.length)] %>" width='200' alt="listCover">
         </div>
     <% }) %>
 
