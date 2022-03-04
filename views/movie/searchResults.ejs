@@ -1,14 +1,12 @@
 <button class="hackyTrick"></button>
-
-<h2 class="searchResultsTitle">Search results</h2>
-
+<h2 class="searchResultTitle">Search results</h2>
 <div class="searchResultContainer">
-    <% searchResults.results.forEach((result) => { %>
-        <div class="movieInList">
-            <a class="movieLink" href="/movie/details/<%= result.id %> "><h4><%= result.title %> </h4></a>
-            <img src= <%= result.image %>  width='200' alt="movieCover" class="movieImg">
-        </div>
-    <% }) %>
+<% searchResults.results.forEach((result) => { %>
+    <div class="singleResultContainer">
+        <a class="resultLink" href="/movie/details/<%= result.id %> "><h4><%= result.title %> </h4></a>
+        <img class="resultImg" src= <%= result.image %>  width='200' alt="movieCover">
+    </div>
+<% }) %>
 </div>
 
-<link rel="stylesheet" href="/styles/searchResults.css">
+<link rel="stylesheet" href="/styles/searchResult.css">

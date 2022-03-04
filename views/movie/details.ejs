@@ -1,37 +1,39 @@
 <link rel="stylesheet" href="../../public/styles/font-awesome.min.css">
 <button class="hackyTrick"></button>
-
+<div class="movieDetails">
 <div class="titleAndLists">
-    <h3 class="movieTitle"><%= movieInfo.title %> </h3>
-    <div class="listsThings">
-        <ul>
-            <li id="addToList"> <button class="addToListBtn">Add to a list</button> 
-                
-                <ul class="userListsContainer">
-                    <% lists.forEach((list) => { %>
-                        <li class="userLists">    
-                            <form action="/movie/addToList/<%= list.id %>" method="post">
-                                <input class="movieId" name="imdbID" type="text" value="<%= movieInfo.id %>" >
-                                <button class="listBtn" type="submit"><%= list.name %></button>
-                            </form>
-                            
-                        </li>
-                    <% }) %>
-                </ul>
-            </li>
-        </ul>
-    </div>
+<h3 class="movieTitle"><%= movieInfo.title %> </h3>
+<div class="listsThings">
+<ul>
+    <li id="addToList"> <button class="addToListBtn">Add to a list </button> 
+        
+<ul class="userListsContainer">
+    <% lists.forEach((list) => { %>
+        <li class="userLists">    
+            <form action="/movie/addToList/<%= list.id %>" method="post">
+                <input class="movieId" name="imdbID" type="text" value="<%= movieInfo.id %>" >
+                <button class="listBtn" type="submit"><%= list.name %></button>
+            </form>
+            
+        </li>
+    <% }) %>
+</ul>
+</li>
+</ul>
+</div>
 </div>
 
-<div class="movieDetailsContainer">
-    <h4 class="movieGenre" name="movieGenre"><%= movieInfo.genres %> </h4>
-    <img name="MovieImg" src= <%= movieInfo.image %>   width='250' alt="movieCover">
-    <h5 class="movieDirector">Director: <%= movieInfo.directors %></h5>
-    <h5>Writers: <%= movieInfo.writers %></h5>
-    <h5>Cast: <%= movieInfo.stars %></h5>
-    <h5 name="movieStudio">Studio: <%= movieInfo.companies %></h5>
-    <h5>Synopsis: </h5>
-    <p ><%= movieInfo.plot %></p>
+<div class="movieInfo">
+<h4 class="movieGenre"><%= movieInfo.genres %></h4>
+<img class="movieImg" src= <%= movieInfo.image %>   width='250' alt="movieCover">
+<h5 class="detailTitle"><b>Studio:</b></h5><p class="info"> <%= movieInfo.companies %></p>
+<h5 class="detailTitle">Director:</h5><p class="info"> <%= movieInfo.directors %></p>
+<h5 class="detailTitle"><b>Writers:</b></h5><p class="info"> <%= movieInfo.writers %></p>
+<h5 class="detailTitle"><b>Cast:</b></h5><p class="info"> <%= movieInfo.stars %></p>
+</div>
+<div class="synopsisContainer">
+<h5 class="movieSynopsis"><b>Synopsis</b> </h5>
+<p class="synopsisBody"><%= movieInfo.plot %></p>
 </div>
 <div>
     <!-- <h2>Rating</h2>
@@ -45,31 +47,42 @@
     <input type="radio" id="st4" value="4" class="starInput" />
     <label for="st4" class="starLabel"></label>
     <input type="radio" id="st5" value="5" class="starInput" />
-    <label for="st5" class="starLabel"></label> -->
+    <label for="st5" class="starLabel"></label>  -->
     
-    <% if (reviews) { %>
-        <h3>Reviews</h3>
-    <div>
+
+   
+    
+    <% if (reviews.length > 0) { %>
+        <h3 class="reviewTitle">Reviews</h3>   
+    <div class="reviewsContainer">
         <% reviews.forEach((review) => { %>
-        <div class="reviewContainer">    
-            <span><%= review.author %></span> <br>
-            <span><%= review.review %> </span> <br>
-            <span>Posted at: <%= review.dateCreated %> </span>
+        <div class="singleReviewContainer">    
+            <span class="author"><b><%= review.author %></b></span> <br>
+            <span class="reviewBody"><%= review.review %> </span> <br>
+            <span class="date">Posted at: <%= review.dateCreated %> </span>
+            <hr class="separator">
         </div>
     <% }) %>
     </div>
-    <% } %>
-
+    <% } else { %>
+        <h3 class="reviewTitle">Reviews</h3>
+        <span class="noReviewContainer"> There is no review yet, let us know what you think about this movie!</span>
+        <% } %>
     <div>
-        <h3>Add a review</h3>
-        <form action="/movie/details/<%= movieInfo.id %>" method="post">
-            <textarea name="reviewBody" id="" cols="80" rows="6"></textarea>
-            <button type="submit">Submit</button>
+       
+        <h3 class="addReviewTitle">Add a review</h3>
+        <div class="addReviewContainer">
+        
+        <form class="reviewForm" action="/movie/details/<%= movieInfo.id %>" method="post">
+            <textarea class="textReview" name="reviewBody" id="" cols="80" rows="6"></textarea>
+            <button class="reviewBtn" type="submit">Submit review</button>
         </form>
+    </div>
+    </div>
     </div>
 </div>
 
-<h3>Similar movies</h3>
+<h3 class="similarMoviesTitle">Similar movies</h3>
 <div class="similarMovieContainer">
 <% movieInfo.similars.forEach((similar) => { %>
     <div class="singleSimilarMovieContainer">    
@@ -85,6 +98,7 @@
         e.style.display = 'none'
     })
 </script>
+</div>
 </div>
 
 <link rel="stylesheet" href="/styles/details.css">
