@@ -73,3 +73,44 @@ body {
     margin-bottom: 2em;
     opacity: 1;
 }
+
+.addListImg {
+    align-content: center;
+    cursor: pointer;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.addListBtn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    background-color: #F9EBF4ff;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+.addListInput {
+    padding: 5px;
+    align-items: center;
+    border: 1px solid rgb(145, 120, 135);
+    border-radius: 6px;
+    align-content: center;
+    font-size: 0.9em;
+}
+
+.addListContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addListForm {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
