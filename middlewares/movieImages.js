@@ -9,7 +9,6 @@ const images = [
     'https://imdb-api.com/images/original/MV5BMjA4MjI2OTM5N15BMl5BanBnXkFtZTcwNDA1NjUzMw@@._V1_Ratio0.7273_AL_.jpg',
     'https://imdb-api.com/images/original/MV5BMjA4MzAxNTc5OF5BMl5BanBnXkFtZTgwMjgzMDE4OTE@._V1_Ratio0.7273_AL_.jpg',
     'https://imdb-api.com/images/original/MV5BMTQzNzczMDUyNV5BMl5BanBnXkFtZTcwNjM2ODEzOA@@._V1_Ratio0.7273_AL_.jpg',
-    'https://imdb-api.com/images/original/nopicture.jpg',
     'https://imdb-api.com/images/original/MV5BMTM0NTczMTUzOV5BMl5BanBnXkFtZTYwMzIxNTg3._V1_Ratio0.6762_AL_.jpg',
     'https://imdb-api.com/images/original/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_Ratio0.7273_AL_.jpg',
     'https://imdb-api.com/images/original/MV5BMjE5NDQ5OTE4Ml5BMl5BanBnXkFtZTcwOTE3NDIzMw@@._V1_Ratio0.7273_AL_.jpg',
